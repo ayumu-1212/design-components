@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# style
+/styled-system
+
 # testing
 /coverage
 
