@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { useState } from 'react'
 import { css } from '../../../styled-system/css'
@@ -26,13 +26,25 @@ export const Transitions = () => {
   }
   const transitionItems = items.map((item, index) => {
     return (
-      <TransitionsItem key={`item-${index}`} content={item} onChange={(content: string) => onChange(index, content)} onClose={() => onRemove(index)} />
+      <TransitionsItem
+        key={`item-${index}`}
+        content={item}
+        onChange={(content: string) => onChange(index, content)}
+        onClose={() => onRemove(index)}
+      />
     )
   })
 
-
   return (
-    <div className={css({ display: "flex", padding: "1rem", gap: "1px", justifyContent: "center", alignItems: "center" })}>
+    <div
+      className={css({
+        display: 'flex',
+        padding: '1rem',
+        gap: '1px',
+        justifyContent: 'center',
+        alignItems: 'center',
+      })}
+    >
       {transitionItems}
       <TransitionsAddButton onClick={onAdd} />
     </div>
