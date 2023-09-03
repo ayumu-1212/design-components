@@ -10,22 +10,21 @@ export const UseTransitionExample = () => {
   return (
     <>
       <h1>02 Example of useTransition</h1>
-      <Suspense fallback={<p>loading...</p>}>
-        {showChild ? (
-          <AdditionalContents />
-        ) : (
-          <button
-            onClick={() => {
-              // setShowChildをstartTransitionで囲んだ
-              startTransition(() => {
-                setShowChild(true)
-              })
-            }}
-          >
-            追加コンテンツを表示
-          </button>
-        )}
-      </Suspense>
+      {showChild ? (
+        <AdditionalContents />
+      ) : (
+        <button
+          disabled={isPending}
+          onClick={() => {
+            // setShowChildをstartTransitionで囲んだ
+            startTransition(() => {
+              setShowChild(true)
+            })
+          }}
+        >
+          追加コンテンツを表示
+        </button>
+      )}
     </>
   )
 }
