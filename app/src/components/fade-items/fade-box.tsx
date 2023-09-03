@@ -5,7 +5,7 @@ type Props = {
 }
 
 export const FadeBox = ({ show }: Props) => {
-  return <div className={boxStyle({ show: show })} />
+  return <div className={boxStyle({ show })} />
 }
 
 const boxStyle = cva({

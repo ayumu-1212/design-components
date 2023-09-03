@@ -3,6 +3,7 @@
 import { useState, useTransition } from 'react'
 import { css } from '../../../styled-system/css'
 import { FadeBox } from './fade-box'
+import { waiter } from '../waiter'
 
 export const FadeItem = () => {
   const [show, setShow] = useState(false)
@@ -12,10 +13,13 @@ export const FadeItem = () => {
     if (show) {
       startTransition(() => {
         setShow(false)
-        // setTimeout('', 500)
+        waiter(500)
       })
     } else {
       setShow(true)
+      startTransition(() => {
+        waiter(500)
+      })
     }
   }
 
@@ -30,7 +34,7 @@ export const FadeItem = () => {
           toggle
         </button>
       </p>
-      {show ? <FadeBox show={show && !isPending} /> : null}
+      {show ? <FadeBox show={show} /> : null}
     </div>
   )
 }
